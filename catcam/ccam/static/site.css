@@ -1,4 +1,12 @@
+#controls:hover {
+    background-color:white;
+}
 
+#controls a {
+    font-size: 1.5em;
+    padding: 20px;
+    text-decoration:none;
+}
 
 body {
 
