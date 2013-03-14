@@ -12,13 +12,9 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#controls').hide();
-            $('#right').click(function(event){
+            $('#play').click(function(event){
                event.preventDefault();
-               $.get('/right');
-            });
-            $('#left').click(function(event){
-               event.preventDefault();
-               $.get('/left');
+               $.get('/play');
             });
             setInterval(function(){
                 //do stuff
@@ -44,9 +40,7 @@
         <!--Interactive Part-->
         <div id="nav" class="grid_12">
             <p>You are currently <span id="pos">{{pos}}</span> out of <span id="length">{{length}}</span></p>
-            <ul>
-                <li><a href=""><img src="{{ STATIC_URL }}images/2cat.png" width ="65"; height = "75";> Click here to play with the us! </a></li>
-            </ul>
+
         </div>
         
         <!--Video and form -->
@@ -54,7 +48,9 @@
            <iframe width="640" height="360" src="http://www.youtube.com/embed/KGrdPJHgtJg" frameborder="0" allowfullscreen></iframe>
             <div id="controls">
                 <h1>Control CATS</h1>
-                <p><a id="left" href="/left">Move Left</a> <span>     </span> <a id="right" href="/right">Move Right</a></p>
+                <ul>
+                    <li><a id="play" href=""><img src="{{ STATIC_URL }}images/2cat.png" width ="65"; height = "75";> Click here to play with the us! </a></li>
+                </ul>
             </div>
         </div>
         <div id="sidebar" class="grid_5">
