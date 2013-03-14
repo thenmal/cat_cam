@@ -26,13 +26,20 @@ def index(request):
 
 def stay_alive(request):
     global t
+    global queue
+    global counter
     res = {'pos':-1, 'length':-1}
-    if 'place' in request.session.keys():
-        if request.session['place'] == queue[0]:
+    if request.session and 'place' in request.session.keys() and request.session['place'] in queue:
+        if len(queue) > 0 and request.session['place'] == queue[0]:
             t = time.time()
-        res['pos'] = queue.index(request.session['place']) + 1
-        res['length'] = len(queue)
+    else:
+        request.session['place'] = counter
+        queue.append(counter)
+        counter += 1
+    res['pos'] = queue.index(request.session['place']) + 1
+    res['length'] = len(queue)
+    print '{} in {} time {}'.format(request.session['place'], queue, t)
     if time.time() - t > 10:
-        if len(queue) > 0:
+        if len(queue) > 1:
             queue.pop(0)
     return HttpResponse(simplejson.dumps(res), mimetype='application/json')
