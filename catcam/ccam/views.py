@@ -21,7 +21,7 @@ def index(request):
         counter += 1
     pos = queue.index(request.session['place']) + 1
     length = len(queue)
-    return render(request, 'home.html',
+    return render(request, 'base.html',
                              {'pos':pos, 'length':length})
 
 def stay_alive(request):
