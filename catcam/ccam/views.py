@@ -43,3 +43,16 @@ def stay_alive(request):
         if len(queue) > 1:
             queue.pop(0)
     return HttpResponse(simplejson.dumps(res), mimetype='application/json')
+
+def move(direction):
+    print direction
+
+def left(request):
+    if request.session and 'place' in request.session.keys() and len(queue) > 0 and request.session['place'] == queue[0]:
+        move('left')
+    return HttpResponse('k')
+
+def right(request):
+    if request.session and 'place' in request.session.keys() and len(queue) > 0 and request.session['place'] == queue[0]:
+        move('right')
+    return HttpResponse('k')

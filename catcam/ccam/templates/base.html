@@ -12,6 +12,14 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#controls').hide();
+            $('#right').click(function(event){
+               event.preventDefault();
+               $.get('/right');
+            });
+            $('#left').click(function(event){
+               event.preventDefault();
+               $.get('/left');
+            });
             setInterval(function(){
                 //do stuff
                 $.get('/stay_alive', function(data){
@@ -46,6 +54,7 @@
            <iframe width="640" height="360" src="http://www.youtube.com/embed/KGrdPJHgtJg" frameborder="0" allowfullscreen></iframe>
             <div id="controls">
                 <h1>Control CATS</h1>
+                <p><a id="left" href="/left">Move Left</a> <span>     </span> <a id="right" href="/right">Move Right</a></p>
             </div>
         </div>
         <div id="sidebar" class="grid_5">
@@ -56,6 +65,7 @@
                     Inspired by <a href="https://www.youtube.com/watch?v=KGrdPJHgtJg">Pet Collective's Kitten Cam</a> and <a href="http://www.chromeweblab.com/universal-orchestra">Chrome Web Lab Experiment Universal-Orchestra</a>, Cat Game combines interactivity with the joy of watching live cats!
                     </br></br>We are using a Raspberry Pi to run this whole site! It not only runs the webcam, but also runs the webserver. It even signals the connected servo to move the cat-toy when you click the 'Play with the cats' button. 
                     </p>
+                    <p>View the source code on <a href="https://github.com/thenmal/cat_cam">Github</a></p>
             </div>
             <div id="goat_of_the_week">
                 <h2>About Raspberry Pi</h2>
